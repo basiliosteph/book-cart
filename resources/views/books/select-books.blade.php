@@ -15,7 +15,7 @@
     <h1>Hello {{ $first_name }} {{ $last_name }}!</h1>
 
     <!-- 1. point to the appropriate form handler with the proper HTTP request method -->
-    <form action="/???????" method="??????">
+    <form action="/reserve-books" method="POST">
     @csrf
     @foreach ($books as $book)
     <div class="form-check">
