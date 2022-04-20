@@ -84,7 +84,7 @@ class BooksController extends Controller
         $reserved_books = [];
 
         foreach ($books as $book) {
-             if (in_array()) {
+             if (in_array($book)) {
                  array_push($reserved_books, $book);
              }
         }
