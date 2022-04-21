@@ -21,11 +21,11 @@
     <div class="row">
         <div class="col col-md-6">
             <label>First Name:</label>
-            <input type="text" name="first_name" class="form-control">
+            <input type="text" name="first_name" class="form-control" required>
         </div>
         <div class="col col-md-6">
             <label>Last Name:</label>
-            <input type="text" name="last_name" class="form-control">
+            <input type="text" name="last_name" class="form-control" required>
         </div>
     </div>
     <hr />
