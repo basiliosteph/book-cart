@@ -15,8 +15,8 @@
     <h1>Thank you {{ $first_name }} {{ $last_name }} for reserving books!</h1>
 
     <ul class="list-unstyled">
-    @foreach ($books as $book)
-         <li> {{ $book }} </li>
+    @foreach ($reserved_books as $book)
+         <li> <strong> {{ $book['title'] }} </strong> by {{ $book['author'] }}, {{ $book['year_published'] }} </li>
     @endforeach
     </ul>
 

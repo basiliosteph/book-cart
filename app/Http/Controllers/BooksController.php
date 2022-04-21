@@ -41,13 +41,15 @@ class BooksController extends Controller
     public function saveCompleteName(Request $request)
     {
         // 1. Save the first name and last name of the user into the session (https://laravel.com/docs/9.x/session)
+        $first_name = $request->first_name;
+        $last_name = $request->last_name;
         $request->session()->put('first_name', $request->first_name);
         $request->session()->put('last_name', $request->last_name);
 
         // .... add your code here
 
         // 2. Read this documentation for redirection (https://laravel.com/docs/9.x/redirects), and redirect to the page or endpoint where the books are listed
-        return redirect('select-books');
+        return redirect('/select-books');
     }
 
     public function listBooks(Request $request)
@@ -67,10 +69,10 @@ class BooksController extends Controller
 
         // 1. Save all the selected books array that is stored in a session variable https://laravel.com/docs/9.x/session#storing-data
         foreach ($request->books as $book) {
-            $request->session()->put('books', $book);
+            $request->session()->push('books', $book);
         }
 
-        return redirect('thank-you');
+        return redirect('/thank-you');
     }
 
     public function showThankYouPage(Request $request)
@@ -84,7 +86,7 @@ class BooksController extends Controller
         $reserved_books = [];
 
         foreach ($books as $book) {
-             if (in_array($book)) {
+             if (in_array($book['code'], $book_codes)) {
                  array_push($reserved_books, $book);
              }
         }
